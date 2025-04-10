@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "typecheck": "tsc --build --force && npm run clean",
+    "clean": "npx rimraf dist"
   },
   "dependencies": {
     "react": "^19.0.0",
