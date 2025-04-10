@@ -77,7 +77,9 @@ const ModelParamEditor: React.FC<ModelParamEditorProps> = ({ params: initialPara
 
   const handleRemoveParam = (paramId: number) => {
     setParams((prevParams) => prevParams.filter((param) => param.id !== paramId))
-    setParamValues((prevValues) => prevValues.filter((paramValue) => paramValue.paramId !== paramId))
+    setParamValues((prevValues) =>
+      prevValues.filter((paramValue) => paramValue.paramId !== paramId),
+    )
   }
 
   const getModel = (): Model => {
