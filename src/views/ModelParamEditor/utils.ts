@@ -1,6 +1,6 @@
 import type { Param, ParamValue } from '../../types/param-editor.ts'
 
-export const getDefaultValue = (param: Param): string | number => {
+export const getDefaultValue = (param: Param): string => {
   switch (param.type) {
     case 'number':
       return '0'
@@ -28,4 +28,10 @@ export const normalizeParamValues = (paramValues: ParamValue[], params: Param[])
       value: normalizedValue,
     }
   })
+}
+
+let uniqueIdCounter = 0
+
+export const generateUniqueId = (): number => {
+  return Date.now() + uniqueIdCounter++
 }
