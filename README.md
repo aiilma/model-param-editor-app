@@ -1,54 +1,39 @@
-# React + TypeScript + Vite
+# Редактор параметров модели
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Этот проект представляет собой React-приложение для редактирования параметров модели. Пользователь может добавлять, удалять и изменять параметры модели, а также задавать значения для каждого параметра.
 
-Currently, two official plugins are available:
+## Основные функции
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Редактирование параметров**: Поддерживаются параметры типов `string`, `number` и `select`.
+- **Добавление новых параметров**: Возможность добавлять параметры с уникальными именами и типами.
+- **Удаление параметров**: Удаление существующих параметров из списка.
+- **Работа с опциями**: Для параметров типа `select` можно добавлять и редактировать список опций.
+- **Получение модели**: Генерация объекта модели с нормализованными значениями параметров.
 
-## Expanding the ESLint configuration
+## Технологии
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React**: Для построения пользовательского ui.
+- **TypeScript**: Для типизации и повышения надежности кода.
+- **CSS**: Для стилизации компонентов.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Установка и запуск
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1. Клонируйте репозиторий:
+   ```bash
+   git clone <URL репозитория>
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2. Установите зависимости:
+   ```bash
+   npm install
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+3. Запустите приложение:
+   ```bash
+   npm start
+
+## Структура проекта
+
+- `src/App.tsx`: Главный компонент приложения.
+- `src/views/ModelParamEditor/ModelParamEditor.tsx`: Основной компонент редактора параметров.
+- `src/views/ModelParamEditor/ParamInput.tsx`: Компонент для ввода значений параметров.
+- `src/views/ModelParamEditor/utils.ts`: Утилиты для работы с параметрами.
+- `src/types/param-editor.ts`: Типы данных для параметров и модели.
