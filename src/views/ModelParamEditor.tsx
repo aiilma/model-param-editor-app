@@ -22,8 +22,16 @@ const ModelParamEditor: React.FC<ModelParamEditorProps> = ({ params, model }) =>
   }
 
   const getModel = (): Model => {
+    const completeParamValues = params.map((param) => {
+      const existingValue = paramValues.find((pv) => pv.paramId === param.id)
+      return {
+        paramId: param.id,
+        value: existingValue ? existingValue.value : '',
+      }
+    })
+
     return {
-      paramValues,
+      paramValues: completeParamValues,
       colors: model.colors,
     }
   }
